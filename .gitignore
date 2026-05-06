@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDE
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/
+
+# Dev artifacts non utilisés par le site
+*.pdf
+figma-*.png
+PRD.md
+DESIGN.md
+claude.md
+Photos Hôtel_restaurant _.md
+
+# Anciennes images sources (les versions normalisées sont dans assets/)
+assets/Logo GMP - Coloré.png
+assets/Logo IUT - Blanc.png
+assets/bus-ligne-191.png
+assets/bus-ligne-103.png
