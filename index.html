@@ -370,7 +370,7 @@
     }
     .prog-card {
       display: grid;
-      grid-template-columns: 130px 1fr 50px;
+      grid-template-columns: minmax(180px, auto) 1fr 50px;
       align-items: center;
       gap: 1.25rem;
       background: var(--white);
@@ -384,19 +384,31 @@
       transform: translateY(-2px);
       box-shadow: var(--shadow-hover);
     }
-    .prog-time { display: flex; flex-direction: column; gap: 0.15rem; }
+    .prog-time {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
     .prog-hour {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       color: var(--orange);
       font-variant-numeric: tabular-nums;
+      line-height: 1;
     }
     .prog-label {
       font-size: 0.72rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      background: var(--bg-light);
+      border-radius: 50px;
+      font-weight: 600;
+      white-space: nowrap;
     }
     .prog-body { display: flex; flex-direction: column; gap: 0.2rem; }
     .prog-title {
@@ -1271,10 +1283,21 @@
       text-align: center;
       padding: 3rem 2rem;
     }
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
     .footer-logo {
       height: 45px;
       filter: brightness(0) invert(1);
-      margin: 0 auto 1.25rem;
+    }
+    .footer-logo-acd {
+      filter: none;
+      height: 80px;
     }
     #footer p { font-size: 0.9rem; margin-bottom: 0.4rem; }
     #footer a { color: var(--orange); }
@@ -1822,8 +1845,6 @@
           </article>
 
         </div>
-
-        <p class="hotel-note">Les prix affichés sont indicatifs. Pour bénéficier des meilleurs tarifs, nous recommandons une réservation directe sur le site de l'hôtel.</p>
       </div>
     </section>
 
@@ -2096,7 +2117,7 @@
         <div class="tabs">
           <button class="tab-btn active" data-tab="resto" onclick="showTab('decouvrir', 'resto', this)">Restaurants</button>
           <button class="tab-btn" data-tab="bar" onclick="showTab('decouvrir', 'bar', this)">Bars &amp; Soirées</button>
-          <button class="tab-btn" data-tab="quartiers" onclick="showTab('decouvrir', 'quartiers', this)">Quartiers &amp; Plages</button>
+          <button class="tab-btn" data-tab="quartiers" onclick="showTab('decouvrir', 'quartiers', this)">Lieux emblématiques</button>
         </div>
 
         <!-- Tab Restos -->
@@ -2233,7 +2254,7 @@
           </div>
         </div>
 
-        <!-- Tab Quartiers & Plages -->
+        <!-- Tab Lieux emblématiques -->
         <div class="tab-content" id="decouvrir-quartiers">
           <div class="bento">
             <article class="bento-card bento-big image-bg" style="background-image: url('https://cdn.prod.website-files.com/647dd13057f12027a86e005a/6616a2f932f01a2e02ec997f_plage_mourillon-toulon_1_0.jpg');">
@@ -2290,6 +2311,15 @@
                 <p class="bento-address"><i class="fas fa-map-marker-alt"></i> Centre de Toulon</p>
               </div>
             </article>
+
+            <article class="bento-card bento-sm image-bg" style="background-image: url('https://images.unsplash.com/photo-1500630967419-fbadf93f0b6d?auto=format&amp;fit=crop&amp;w=900&amp;q=80');">
+              <div class="bento-content">
+                <div class="bento-icon"><i class="fas fa-archway"></i></div>
+                <span class="bento-type">Place pittoresque</span>
+                <h3 class="bento-name">Place Vattel</h3>
+                <p class="bento-address"><i class="fas fa-map-marker-alt"></i> Vieille ville de Toulon</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -2344,7 +2374,10 @@
 
   <!-- FOOTER -->
   <footer id="footer">
-    <img src="assets/logo-gmp.png" alt="GMP IUT de Toulon" class="footer-logo">
+    <div class="footer-logos">
+      <img src="assets/logo-gmp.png" alt="GMP IUT de Toulon" class="footer-logo">
+      <img src="assets/Logo%20ACD%20GMP_version_blanc.png" alt="ACD GMP Toulon 2026" class="footer-logo footer-logo-acd">
+    </div>
     <div class="footer-divider"></div>
     <p>© 2026 · Département GMP · IUT de Toulon · Université de Toulon</p>
     <p><a href="mailto:communication.iut@univ-tln.fr"><i class="fas fa-envelope"></i> communication.iut@univ-tln.fr</a></p>
