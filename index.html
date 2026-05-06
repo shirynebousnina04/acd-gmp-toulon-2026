@@ -331,9 +331,10 @@
     .tab-location {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.75rem;
       background: var(--white);
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 0.6rem 0.6rem 1.2rem;
       border-radius: var(--radius);
       margin-bottom: 1.5rem;
       font-size: 0.9rem;
@@ -341,7 +342,26 @@
       font-weight: 500;
       box-shadow: var(--shadow);
     }
-    .tab-location i { color: var(--orange); }
+    .tab-location > i { color: var(--orange); }
+    .btn-plan-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 50px;
+      border: none;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-plan-inline:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+    .btn-plan-inline i { font-size: 0.78rem; }
 
     .prog-list {
       display: flex;
@@ -417,65 +437,6 @@
       color: #4c1d95;
     }
     .note-gala i { font-size: 1.2rem; color: #7c3aed; flex-shrink: 0; }
-
-    /* Plan du campus */
-    .campus-map-card {
-      margin-top: 2.5rem;
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.05);
-      overflow: hidden;
-    }
-    .campus-map-head {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-    .campus-map-icon {
-      width: 52px; height: 52px;
-      border-radius: 12px;
-      background: rgba(245,130,31,0.12);
-      color: var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .campus-map-head h3 {
-      font-size: 1.1rem;
-      color: var(--blue-dark);
-      margin-bottom: 0.2rem;
-    }
-    .campus-map-head p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .campus-map-head p i { color: var(--orange); }
-
-    .campus-map-img-wrap {
-      position: relative;
-      cursor: zoom-in;
-      overflow: hidden;
-    }
-    .campus-map-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: var(--bg-light);
-      transition: transform 0.4s var(--ease);
-    }
-    .campus-map-img-wrap:hover .campus-map-img { transform: scale(1.02); }
-    .campus-map-img-wrap:hover .line-map-zoom {
-      background: var(--orange);
-      transform: scale(1.1);
-    }
 
     /* ============================================
        HÉBERGEMENTS · cartes avec image + badges
@@ -1412,7 +1373,10 @@
         <div class="tab-content" id="prog-mer">
           <div class="tab-location">
             <i class="fas fa-map-marker-alt"></i>
-            Campus de La Garde · Avenue de l'Université, 83130 La Garde
+            <span>IUT de Toulon · Amphi Ouest, Bâtiment A, Campus de La Garde</span>
+            <button class="btn-plan-inline" type="button" onclick="openLightbox('assets/ACD_GMP.png', 'Plan du campus de La Garde · IUT de Toulon')">
+              <i class="fas fa-map-location-dot"></i> Voir le plan
+            </button>
           </div>
           <div class="prog-list">
             <div class="prog-card">
@@ -1433,7 +1397,10 @@
         <div class="tab-content active" id="prog-jeu">
           <div class="tab-location">
             <i class="fas fa-map-marker-alt"></i>
-            IUT de Toulon · Amphi Ouest, Bâtiment A, Campus de La Garde
+            <span>IUT de Toulon · Amphi Ouest, Bâtiment A, Campus de La Garde</span>
+            <button class="btn-plan-inline" type="button" onclick="openLightbox('assets/ACD_GMP.png', 'Plan du campus de La Garde · IUT de Toulon')">
+              <i class="fas fa-map-location-dot"></i> Voir le plan
+            </button>
           </div>
           <div class="prog-list">
             <div class="prog-card">
@@ -1511,7 +1478,10 @@
         <div class="tab-content" id="prog-ven">
           <div class="tab-location">
             <i class="fas fa-map-marker-alt"></i>
-            IUT de Toulon · Amphi Ouest, Bâtiment A, Campus de La Garde
+            <span>IUT de Toulon · Amphi Ouest, Bâtiment A, Campus de La Garde</span>
+            <button class="btn-plan-inline" type="button" onclick="openLightbox('assets/ACD_GMP.png', 'Plan du campus de La Garde · IUT de Toulon')">
+              <i class="fas fa-map-location-dot"></i> Voir le plan
+            </button>
           </div>
           <div class="prog-list">
             <div class="prog-card">
@@ -1538,21 +1508,6 @@
               </div>
               <i class="fas fa-utensils prog-icon"></i>
             </div>
-          </div>
-        </div>
-
-        <!-- Plan du campus -->
-        <div class="campus-map-card">
-          <div class="campus-map-head">
-            <div class="campus-map-icon"><i class="fas fa-map-location-dot"></i></div>
-            <div>
-              <h3>Plan du campus</h3>
-              <p><i class="fas fa-map-marker-alt"></i> IUT de Toulon · Amphi Ouest, Bâtiment A · Campus de La Garde</p>
-            </div>
-          </div>
-          <div class="campus-map-img-wrap" onclick="openLightbox('assets/ACD_GMP.png', 'Plan du campus de La Garde · IUT de Toulon')">
-            <img src="assets/ACD_GMP.png" alt="Plan du campus de La Garde · IUT de Toulon" class="campus-map-img" loading="lazy">
-            <span class="line-map-zoom" aria-hidden="true"><i class="fas fa-search-plus"></i></span>
           </div>
         </div>
       </div>
