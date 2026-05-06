@@ -1283,21 +1283,43 @@
       text-align: center;
       padding: 3rem 2rem;
     }
-    .footer-logos {
-      display: flex;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      margin-bottom: 1.25rem;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-center {
+      text-align: center;
     }
     .footer-logo {
-      height: 45px;
       filter: brightness(0) invert(1);
+    }
+    .footer-logo-gmp {
+      height: 95px;
+      width: auto;
+      justify-self: start;
     }
     .footer-logo-acd {
       filter: none;
-      height: 80px;
+      height: 145px;
+      width: auto;
+      justify-self: end;
+    }
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        justify-items: center;
+      }
+      .footer-logo-gmp,
+      .footer-logo-acd {
+        justify-self: center;
+      }
+      .footer-logo-gmp { height: 75px; }
+      .footer-logo-acd { height: 110px; }
     }
     #footer p { font-size: 0.9rem; margin-bottom: 0.4rem; }
     #footer a { color: var(--orange); }
@@ -2374,18 +2396,20 @@
 
   <!-- FOOTER -->
   <footer id="footer">
-    <div class="footer-logos">
-      <img src="assets/logo-gmp.png" alt="GMP IUT de Toulon" class="footer-logo">
+    <div class="footer-grid">
+      <img src="assets/logo-gmp.png" alt="GMP IUT de Toulon" class="footer-logo footer-logo-gmp">
+      <div class="footer-center">
+        <div class="footer-divider"></div>
+        <p>© 2026 · Département GMP · IUT de Toulon · Université de Toulon</p>
+        <p><a href="mailto:communication.iut@univ-tln.fr"><i class="fas fa-envelope"></i> communication.iut@univ-tln.fr</a></p>
+        <p class="footer-contact">
+          <a href="tel:+33661471246"><i class="fas fa-mobile-screen-button"></i> 06.61.47.12.46</a>
+          <span class="footer-sep">·</span>
+          <a href="tel:+33494147328"><i class="fas fa-phone"></i> 04.94.14.73.28.75</a>
+        </p>
+      </div>
       <img src="assets/Logo%20ACD%20GMP_version_blanc.png" alt="ACD GMP Toulon 2026" class="footer-logo footer-logo-acd">
     </div>
-    <div class="footer-divider"></div>
-    <p>© 2026 · Département GMP · IUT de Toulon · Université de Toulon</p>
-    <p><a href="mailto:communication.iut@univ-tln.fr"><i class="fas fa-envelope"></i> communication.iut@univ-tln.fr</a></p>
-    <p class="footer-contact">
-      <a href="tel:+33661471246"><i class="fas fa-mobile-screen-button"></i> 06.61.47.12.46</a>
-      <span class="footer-sep">·</span>
-      <a href="tel:+33494147328"><i class="fas fa-phone"></i> 04.94.14.73.28.75</a>
-    </p>
   </footer>
 
   <!-- LIGHTBOX -->
